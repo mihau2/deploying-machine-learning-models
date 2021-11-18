@@ -49,7 +49,7 @@ jobs:
       - run:
           name: Deploy to Heroku
           command: |
-            git subtree push --prefix section-07-ci-and-publishing/house-prices-api https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+            git subtree push --prefix section-07-ci-and-publishing/house-prices-api https://heroku:9ee6ae1b-f9dc-41e3-bf45-32ee5d23e5ec@git.heroku.com/rocky-citadel-14843.git master
 
   section_07_test_and_upload_regression_model:
     <<: *defaults
@@ -307,11 +307,11 @@ workflows:
       # upload after git tags are created
       - section_07_test_and_upload_regression_model:
           <<: *tags_only
-      - section_08_deploy_app_container_in_heroku:
-          filters:
-            branches:
-              only:
-                - master
+      # - section_08_deploy_app_container_in_heroku:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
 
 #  test-all:
 #    jobs:
